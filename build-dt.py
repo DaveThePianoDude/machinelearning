@@ -109,23 +109,23 @@ def sqsplit(xTr, yTr):
     feature = np.inf
     cut = np.inf
 
+    print(xTr)
+
     for featureIndex in range(D):
-        #print(xTr)
-        #print("FEATURE INDEX = " + str(featureIndex))
         # Get the average feature value of this feature.
-        avgFeatureValue = 0.5 #np.sum(xTr[:,featureIndex])/N
+        avgFeatureValue = np.sum(xTr[:,featureIndex]) / N
+
         # Use it to make the cut.
         Sl_yBar = 0
         Sr_yBar = 0
         leftIndices = set()
         rightIndices = set()
-
-        print("Let's try to partition on the value " + str(avgFeatureValue))
+        print("Let's try to partition on the value " + str(avgFeatureValue) + "using Feature# " + str(featureIndex))
 
         # Compute the average label for each child
         for xTrRowIndex in range(N):
-            #print("How does " + str(xTr[xTrRowIndex][featureIndex]) + "compare?" )
-            if xTr[xTrRowIndex][featureIndex] <= 0.5:
+            print("How does " + str(xTr[xTrRowIndex][featureIndex]) + "compare to " + str(avgFeatureValue))
+            if xTr[xTrRowIndex][featureIndex] <= avgFeatureValue:
                 #print("It's less than or equel")
                 leftIndices.add(xTrRowIndex)
                 Sl_yBar += yTr[xTrRowIndex]
@@ -134,30 +134,33 @@ def sqsplit(xTr, yTr):
                 rightIndices.add(xTrRowIndex)
                 Sr_yBar += yTr[xTrRowIndex]
         #print(avgFeatureValue)
-        #print(len(leftIndices))
-        #print(len(rightIndices))
-        # Calculate the yBars
+        print(len(leftIndices))
+        print(len(rightIndices))
 
-        Sl_yBar /= len(leftIndices)
-        Sr_yBar /= len(rightIndices)
+        try:
+            # Calculate the mean predictions for each child set
+            Sl_yBar /= len(leftIndices)
+            Sr_yBar /= len(rightIndices)
 
-        leftImpurity = 0
-        rightImpurity = 0
+            leftImpurity = 0
+            rightImpurity = 0
 
-        for index in range(N):
-            if index in leftIndices:
-                leftImpurity += ((yTr[index]-Sl_yBar) ** 2)
-            else:
-                rightImpurity += ((yTr[index]-Sr_yBar) ** 2)
+            for index in range(N):
+                if index in leftIndices:
+                    leftImpurity += ((yTr[index]-Sl_yBar) ** 2)
+                else:
+                    rightImpurity += ((yTr[index]-Sr_yBar) ** 2)
 
-        loss = leftImpurity + rightImpurity
+            loss = leftImpurity + rightImpurity
 
-        #print ("LOSS = " + str(loss))
+            #print ("LOSS = " + str(loss))
 
-        if loss <= bestloss:
-            bestloss = loss
-            cut = avgFeatureValue
-            feature = featureIndex
+            if loss <= bestloss:
+                bestloss = loss
+                cut = avgFeatureValue
+                feature = featureIndex
+        except:
+            print("Bad split .. forget it.")
 
         #print("BEST LOSS = " + str(bestloss))
         #print("CUT = " + str(cut))
@@ -203,8 +206,8 @@ def showVals(label,val1,val2):
     print(val1)
     print(val2)
 
-# Splites the training and label sets aoccording to some criteria.
-def splitSets(xTr, yTr, cut):
+# Splits the training and label sets aoccording to some criteria.
+def splitSets(xTr, yTr, cut, feature):
 
     n,D = xTr.shape
 
@@ -214,8 +217,8 @@ def splitSets(xTr, yTr, cut):
     yTrRight = []
     index = 0
     for row in xTr:
-        #if row[feature] <= cut:
-        if (index < len(yTr)/2): # For now, split using midpoint
+        if row[feature] <= cut:
+        #if (index < len(yTr)/2): # For now, split using midpoint
             xTrLeft = np.vstack([xTrLeft,row])
             yTrLeft.append(yTr[index])
         else:
@@ -244,11 +247,14 @@ def makeDecisionTree(xTr, yTr, node):
     if isUniform(yTr):
         return TreeNode(None, None, None, None, yTr[0],xTr,yTr)
     else:
-        xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,0)
-        print(xTrLeft)
+        feature, cut, bestloss = sqsplit(xTr, yTr)
+        print("cutting on ")
+        print(cut)
+        xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,cut,feature)
+        #print(xTrLeft)
         print("-------")
-        print(xTrRight)
-        print("DONE")
+        #print(xTrRight)
+        #print("DONE")
         childLeft = TreeNode(None, None, None, None, None, xTrLeft, yTrLeft)
         node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
         childRight = TreeNode(None, None, None, None, None, xTrRight, yTrRight)
