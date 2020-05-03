@@ -195,14 +195,6 @@ class TreeNode(object):
         self.feature = feature
         self.cut = cut
         self.prediction = prediction
-        self.xTr = "leaf"
-        self.yTr = "leaf"
-
-    def setX(self, X):
-        xTr = X
-
-    def setY(self, Y):
-        yTr = Y
 
 #root2 = TreeNode(left_leaf, right_leaf, 0, 1 , 1.5)
 
@@ -246,33 +238,20 @@ def isUniform(xTr):
 
 def makeDecisionTree(xTr, yTr, node):
 
-    #node.xTr = xTr
-    #node.yTr = yTr
-
     # If all data points in the data set share the same label we stop splitting and create a leaf
     if isUniform(yTr):
         node =  TreeNode(None, None, None, None, yTr[0])
-        #node.setX(xTr)
-        #node.setY(yTr)
         return node
     else:
         feature, cut, bestloss = sqsplit(xTr, yTr)
         node.feature = feature
         node.cut = cut
-        print("cutting on ")
-        print(cut)
+        #print("cutting on ")
+        #print(cut)
         xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,cut,feature)
-        #print(xTrLeft)
-        print("-------")
-        #print(xTrRight)
-        #print("DONE")
         childLeft = TreeNode(None, None, None, None, yTrLeft[0])
-        #childLeft.setX(xTrLeft)
-        #childLeft.setY(yTrLeft)
         node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
         childRight = TreeNode(None, None, None, None, yTrRight[0])
-        #childRight.setX(xTrRight)
-        #childRight.setY(yTrRight)
         node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
 
     return node
