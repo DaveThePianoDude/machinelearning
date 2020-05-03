@@ -109,6 +109,9 @@ def sqsplit(xTr, yTr):
     feature = np.inf
     cut = np.inf
 
+    leftPred = np.inf
+    rightPred = np.inf
+
     print(xTr)
 
     for featureIndex in range(D):
@@ -248,6 +251,8 @@ def makeDecisionTree(xTr, yTr, node):
         return TreeNode(None, None, None, None, yTr[0],xTr,yTr)
     else:
         feature, cut, bestloss = sqsplit(xTr, yTr)
+        node.feature = feature
+        node.cut = cut
         print("cutting on ")
         print(cut)
         xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,cut,feature)
@@ -255,9 +260,9 @@ def makeDecisionTree(xTr, yTr, node):
         print("-------")
         #print(xTrRight)
         #print("DONE")
-        childLeft = TreeNode(None, None, None, None, None, xTrLeft, yTrLeft)
+        childLeft = TreeNode(None, None, None, None, yTrLeft[0], xTrLeft, yTrLeft)
         node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
-        childRight = TreeNode(None, None, None, None, None, xTrRight, yTrRight)
+        childRight = TreeNode(None, None, None, None, yTrRight[0], xTrRight, yTrRight)
         node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
 
     return node
