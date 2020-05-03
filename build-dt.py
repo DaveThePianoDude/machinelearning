@@ -109,9 +109,6 @@ def sqsplit(xTr, yTr):
     feature = np.inf
     cut = np.inf
 
-    leftPred = np.inf
-    rightPred = np.inf
-
     print(xTr)
 
     for featureIndex in range(D):
@@ -192,14 +189,20 @@ def sqsplit_test1():
 
 class TreeNode(object):
 
-    def __init__(self, left, right, feature, cut, prediction, xTr, yTr):
+    def __init__(self, left, right, feature, cut, prediction):
         self.left = left
         self.right = right
         self.feature = feature
         self.cut = cut
         self.prediction = prediction
-        self.xTr = xTr
-        self.yTr = yTr
+        self.xTr = "leaf"
+        self.yTr = "leaf"
+
+    def setX(self, X):
+        xTr = X
+
+    def setY(self, Y):
+        yTr = Y
 
 #root2 = TreeNode(left_leaf, right_leaf, 0, 1 , 1.5)
 
@@ -248,7 +251,10 @@ def makeDecisionTree(xTr, yTr, node):
 
     # If all data points in the data set share the same label we stop splitting and create a leaf
     if isUniform(yTr):
-        return TreeNode(None, None, None, None, yTr[0],xTr,yTr)
+        node =  TreeNode(None, None, None, None, yTr[0])
+        node.setX(xTr)
+        node.setY(yTr)
+        return node
     else:
         feature, cut, bestloss = sqsplit(xTr, yTr)
         node.feature = feature
@@ -260,9 +266,13 @@ def makeDecisionTree(xTr, yTr, node):
         print("-------")
         #print(xTrRight)
         #print("DONE")
-        childLeft = TreeNode(None, None, None, None, yTrLeft[0], xTrLeft, yTrLeft)
+        childLeft = TreeNode(None, None, None, None, yTrLeft[0])
+        childLeft.setX(xTrLeft)
+        childLeft.setY(yTrLeft)
         node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
-        childRight = TreeNode(None, None, None, None, yTrRight[0], xTrRight, yTrRight)
+        childRight = TreeNode(None, None, None, None, yTrRight[0])
+        childRight.setX(xTrRight)
+        childRight.setY(yTrRight)
         node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
 
     return node
@@ -277,7 +287,7 @@ def printTree(node):
 # Now root2 is the tree we desired
 def cart(xTr,yTr):
 
-    node = TreeNode(None,None,None,None,None,xTr,yTr);
+    node = TreeNode(None,None,None,None,None);
     tree = makeDecisionTree(xTr,yTr,node)
 
     printTree(tree)
