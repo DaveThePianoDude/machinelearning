@@ -1,7 +1,3 @@
-True
-True
-True
-True
 [[1 1 1 1]
  [1 1 1 0]
  [1 1 0 1]
@@ -18,184 +14,629 @@ True
  [0 0 1 0]
  [0 0 0 1]
  [0 0 0 0]]
-Let's try to partition on the value 0.5
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-[[1 1 1 1]
- [1 1 1 0]
- [1 1 0 1]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+8
+8
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+8
+8
+Let's try to partition on the value 0.5using Feature# 2
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+8
+8
+Let's try to partition on the value 0.5using Feature# 3
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+8
+8
+cutting on 
+0.5
+-------
+[[1 1 1 0]
  [1 1 0 0]
- [1 0 1 1]
  [1 0 1 0]
- [1 0 0 1]
  [1 0 0 0]
- [0 1 1 1]
  [0 1 1 0]
- [0 1 0 1]
  [0 1 0 0]
- [0 0 1 1]
  [0 0 1 0]
- [0 0 0 1]
  [0 0 0 0]]
-Let's try to partition on the value 0.5
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+4
+4
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+4
+4
+Let's try to partition on the value 0.5using Feature# 2
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+4
+4
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+8
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 0 0]
+ [1 0 0 0]
+ [0 1 0 0]
+ [0 0 0 0]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 0.0using Feature# 2
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+4
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+4
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 0 0 0]
+ [0 0 0 0]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 0.0using Feature# 1
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 2
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 0 0]
+ [0 1 0 0]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 1.0using Feature# 1
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 2
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 1 0]
+ [1 0 1 0]
+ [0 1 1 0]
+ [0 0 1 0]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 1.0using Feature# 2
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+4
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+4
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 0 1 0]
+ [0 0 1 0]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 0.0using Feature# 1
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 2
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 1 0]
+ [0 1 1 0]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 1.0using Feature# 1
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 2
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 3
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
 [[1 1 1 1]
- [1 1 1 0]
  [1 1 0 1]
- [1 1 0 0]
  [1 0 1 1]
- [1 0 1 0]
  [1 0 0 1]
- [1 0 0 0]
  [0 1 1 1]
- [0 1 1 0]
  [0 1 0 1]
- [0 1 0 0]
  [0 0 1 1]
- [0 0 1 0]
- [0 0 0 1]
- [0 0 0 0]]
-Let's try to partition on the value 0.5
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 0compare?
-It's less than or equel
+ [0 0 0 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+4
+4
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+4
+4
+Let's try to partition on the value 0.5using Feature# 2
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+4
+4
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+8
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 0 1]
+ [1 0 0 1]
+ [0 1 0 1]
+ [0 0 0 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 0.0using Feature# 2
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+How does 0compare to 0.0
+4
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+4
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 0 0 1]
+ [0 0 0 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 0.0using Feature# 1
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 2
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 0 1]
+ [0 1 0 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 1.0using Feature# 1
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 0.0using Feature# 2
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
 [[1 1 1 1]
- [1 1 1 0]
- [1 1 0 1]
- [1 1 0 0]
  [1 0 1 1]
- [1 0 1 0]
- [1 0 0 1]
- [1 0 0 0]
  [0 1 1 1]
- [0 1 1 0]
- [0 1 0 1]
- [0 1 0 0]
- [0 0 1 1]
- [0 0 1 0]
- [0 0 0 1]
- [0 0 0 0]]
-Let's try to partition on the value 0.5
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-How does 1compare?
-It's greater
-How does 0compare?
-It's less than or equel
-True
+ [0 0 1 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 0.5using Feature# 1
+How does 1compare to 0.5
+How does 0compare to 0.5
+How does 1compare to 0.5
+How does 0compare to 0.5
+2
+2
+Let's try to partition on the value 1.0using Feature# 2
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+4
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+How does 1compare to 1.0
+4
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 0 1 1]
+ [0 0 1 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 0.0using Feature# 1
+How does 0compare to 0.0
+How does 0compare to 0.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 2
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+[[1 1 1 1]
+ [0 1 1 1]]
+Let's try to partition on the value 0.5using Feature# 0
+How does 1compare to 0.5
+How does 0compare to 0.5
+1
+1
+Let's try to partition on the value 1.0using Feature# 1
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 2
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+Let's try to partition on the value 1.0using Feature# 3
+How does 1compare to 1.0
+How does 1compare to 1.0
+2
+0
+Bad split .. forget it.
+cutting on 
+0.5
+-------
+PRINTING THE TREE:
+cut = 0.5
+feat index = 3
+cut = 0.5
+feat index = 2
+cut = 0.5
+feat index = 1
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 1
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 2
+cut = 0.5
+feat index = 1
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 1
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None
+cut = 0.5
+feat index = 0
+cut = None
+feat index = None
+cut = None
+feat index = None

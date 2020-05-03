@@ -246,14 +246,14 @@ def isUniform(xTr):
 
 def makeDecisionTree(xTr, yTr, node):
 
-    node.xTr = xTr
-    node.yTr = yTr
+    #node.xTr = xTr
+    #node.yTr = yTr
 
     # If all data points in the data set share the same label we stop splitting and create a leaf
     if isUniform(yTr):
         node =  TreeNode(None, None, None, None, yTr[0])
-        node.setX(xTr)
-        node.setY(yTr)
+        #node.setX(xTr)
+        #node.setY(yTr)
         return node
     else:
         feature, cut, bestloss = sqsplit(xTr, yTr)
@@ -267,19 +267,19 @@ def makeDecisionTree(xTr, yTr, node):
         #print(xTrRight)
         #print("DONE")
         childLeft = TreeNode(None, None, None, None, yTrLeft[0])
-        childLeft.setX(xTrLeft)
-        childLeft.setY(yTrLeft)
+        #childLeft.setX(xTrLeft)
+        #childLeft.setY(yTrLeft)
         node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
         childRight = TreeNode(None, None, None, None, yTrRight[0])
-        childRight.setX(xTrRight)
-        childRight.setY(yTrRight)
+        #childRight.setX(xTrRight)
+        #childRight.setY(yTrRight)
         node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
 
     return node
 
 def printTree(node):
-    print(node.xTr)
-    print(node.yTr)
+    print("cut = " + str(node.cut))
+    print("feat index = " + str(node.feature))
     if (node.left):
         printTree(node.left)
         printTree(node.right)
@@ -290,6 +290,7 @@ def cart(xTr,yTr):
     node = TreeNode(None,None,None,None,None);
     tree = makeDecisionTree(xTr,yTr,node)
 
+    print("PRINTING THE TREE:")
     printTree(tree)
 
     return tree
