@@ -86,23 +86,18 @@ yTr = np.random.randn(10)*10
 c = 100
 val = np.apply_along_axis(squareMe,0,yTr,c)
 #print(val)
-
-print(sqimpurity_test1())
-print(sqimpurity_test2())
-print(sqimpurity_test3())
-print(sqimpurity_test4())
+#
+##print(sqimpurity_test1())
+#print(sqimpurity_test2())
+#print(sqimpurity_test3())
+#print(sqimpurity_test4())
 #sqimpurity_test5()
 
 xor4 = np.array([[1,1,1,1],[1,1,1,0],[1,1,0,1],[1,1,0,0],[1,0,1,1],[1,0,1,0],[1,0,0,1],[1,0,0,0],[0,1,1,1],[0,1,1,0],[0,1,0,1],[0,1,0,0],[0,0,1,1],[0,0,1,0],[0,0,0,1],[0,0,0,0]])
 yor4 = np.array([1,0,0,1,0,1,1,0,0,1,1,0,1,0,0,1])
 
-def hasDupe(arr):
-    u, c = np.unique(arr, return_counts=True)
-    print ("arr=")
-    print (arr)
-    print ("u=" + str(u))
-    print ("c=" + str(c))
-    return u[c > 1].any()
+def hasDuplicates(X):
+    return len(np.unique(X)) != len(X)
 
 def sqsplit(xTr, yTr):
 
@@ -115,7 +110,7 @@ def sqsplit(xTr, yTr):
     cut = np.inf
 
     for featureIndex in range(D):
-        print(xTr)
+        #print(xTr)
         #print("FEATURE INDEX = " + str(featureIndex))
         # Get the average feature value of this feature.
         avgFeatureValue = 0.5 #np.sum(xTr[:,featureIndex])/N
@@ -129,13 +124,13 @@ def sqsplit(xTr, yTr):
 
         # Compute the average label for each child
         for xTrRowIndex in range(N):
-            print("How does " + str(xTr[xTrRowIndex][featureIndex]) + "compare?" )
+            #print("How does " + str(xTr[xTrRowIndex][featureIndex]) + "compare?" )
             if xTr[xTrRowIndex][featureIndex] <= 0.5:
-                print("It's less than or equel")
+                #print("It's less than or equel")
                 leftIndices.add(xTrRowIndex)
                 Sl_yBar += yTr[xTrRowIndex]
             else:
-                print("It's greater")
+                #print("It's greater")
                 rightIndices.add(xTrRowIndex)
                 Sr_yBar += yTr[xTrRowIndex]
         #print(avgFeatureValue)
@@ -185,62 +180,42 @@ def sqsplit_test1():
     #return a and b and c
     return a
 
-print(sqsplit_test1())
+#print(sqsplit_test1())
 #sqsplit_test2()
 #sqsplit_test3()
 
 class TreeNode(object):
 
-    def __init__(self, left, right, feature, cut, prediction):
+    def __init__(self, left, right, feature, cut, prediction, xTr, yTr):
         self.left = left
         self.right = right
         self.feature = feature
         self.cut = cut
         self.prediction = prediction
+        self.xTr = xTr
+        self.yTr = yTr
 
 #root2 = TreeNode(left_leaf, right_leaf, 0, 1 , 1.5)
 
 def showVals(label,val1,val2):
+
     print(label)
     print(val1)
     print(val2)
 
-def makeDecisionTree(xTr, yTr, node):
+# Splites the training and label sets aoccording to some criteria.
+def splitSets(xTr, yTr, cut):
 
     n,D = xTr.shape
 
-    #Start with a single node containing all points. Calculate mc and S.
-    mc = np.sum(yTr) / len(yTr) #mc = the mean of yTr
-
-    getSqrVar = lambda y, mc: (y-mc) ** 2
-
-    S = np.sum(np.array([getSqrVar(y,mc) for y in yTr]))
-
-    # See if the xTr consists of one, repeated feature vector.
-    xTrHomogeneous = True
-    firstxTrRow = xTr[0]
-    for row in xTr:
-        if not np.array_equal(firstxTrRow, row):
-            xTrHomogeneous = False
-
-    # If all the points in the node have the same value for all the independent variables, stop!
-    if xTrHomogeneous:
-        return TreeNode(None, None, None, None, mc)
-
-    # If all data points in the data set share the same label we stop splitting and create a leaf with label LaTeX: yy
-    if not hasDupe(yTr):
-        return TreeNode(None, None, None, None, yTr[0])
-
-    feature, cut, avgPrediction = sqsplit(xTr, yTr)
-
-    # Generate the xTr and yTr sets for children, using the appropriate parameters:
     xTrLeft = np.empty((0, D), xTr.dtype)
     xTrRight = np.empty((0, D), xTr.dtype)
     yTrLeft = []
     yTrRight = []
     index = 0
     for row in xTr:
-        if row[feature] <= cut:
+        #if row[feature] <= cut:
+        if (index < len(yTr)/2): # For now, split using midpoint
             xTrLeft = np.vstack([xTrLeft,row])
             yTrLeft.append(yTr[index])
         else:
@@ -248,29 +223,55 @@ def makeDecisionTree(xTr, yTr, node):
             yTrRight.append(yTr[index])
         index += 1
 
-    showVals("xTr Left/Right",xTrLeft,xTrRight)
+    return xTrLeft, xTrRight, yTrLeft, yTrRight
 
-    yTrLeftNumpy = np.array(yTrLeft)
-    yTrRightNumpy = np.array(yTrRight)
+# Returns true if set has only one distince element.
+def isUniform(xTr):
 
-    if len(yTrLeftNumpy) == 0 or len(yTrRightNumpy) == 0:
-        return TreeNode(None, None, None, None, avgPrediction)
+    xTrHomogeneous = True
+    firstxTrRow = xTr[0]
+    for row in xTr:
+        if not np.array_equal(firstxTrRow, row):
+            xTrHomogeneous = False
+    return xTrHomogeneous
 
-    leftPred = np.sum(yTrLeftNumpy) / len(yTrLeftNumpy)
-    rightPred = np.sum(yTrRightNumpy) / len(yTrRightNumpy)
+def makeDecisionTree(xTr, yTr, node):
 
-    node.left = build(xTrLeft,yTrLeftNumpy, node)
-    node.right = build(xTrRight,yTrRightNumpy, node)
+    node.xTr = xTr
+    node.yTr = yTr
 
-    return TreeNode(node.left, node.right, feature, cut, avgPrediction)
+    # If all data points in the data set share the same label we stop splitting and create a leaf
+    if isUniform(yTr):
+        return TreeNode(None, None, None, None, yTr[0],xTr,yTr)
+    else:
+        xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,0)
+        print(xTrLeft)
+        print("-------")
+        print(xTrRight)
+        print("DONE")
+        childLeft = TreeNode(None, None, None, None, None, xTrLeft, yTrLeft)
+        node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
+        childRight = TreeNode(None, None, None, None, None, xTrRight, yTrRight)
+        node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
 
+    return node
+
+def printTree(node):
+    print(node.xTr)
+    print(node.yTr)
+    if (node.left):
+        printTree(node.left)
+        printTree(node.right)
 
 # Now root2 is the tree we desired
 def cart(xTr,yTr):
 
-    #  Otherwise, search over all binary splits of all variables for the one which will reduce S as much as possible.
-    return build(xTr,yTr,None)
+    node = TreeNode(None,None,None,None,None,xTr,yTr);
+    tree = makeDecisionTree(xTr,yTr,node)
 
+    printTree(tree)
+
+    return tree
 
 #test case 1
 def cart_test1():
@@ -323,13 +324,4 @@ def cart_test5():
     # check whether you set t.feature and t.cut to something
     return t.feature is not None and t.cut is not None
 
-#t=cart(xor4,yor4)
-#print("LET's DO ITTT")
-#X = np.arange(4).reshape(-1, 1)
-#print(X)
-#y = np.array([0, 0, 1, 1])
-#print(y)
-
-#t = cart(X, y) # your cart algorithm should generate one split
-
-print(hasDupe(y))
+cart(xor4,yor4)

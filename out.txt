@@ -1,0 +1,201 @@
+True
+True
+True
+True
+[[1 1 1 1]
+ [1 1 1 0]
+ [1 1 0 1]
+ [1 1 0 0]
+ [1 0 1 1]
+ [1 0 1 0]
+ [1 0 0 1]
+ [1 0 0 0]
+ [0 1 1 1]
+ [0 1 1 0]
+ [0 1 0 1]
+ [0 1 0 0]
+ [0 0 1 1]
+ [0 0 1 0]
+ [0 0 0 1]
+ [0 0 0 0]]
+Let's try to partition on the value 0.5
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+[[1 1 1 1]
+ [1 1 1 0]
+ [1 1 0 1]
+ [1 1 0 0]
+ [1 0 1 1]
+ [1 0 1 0]
+ [1 0 0 1]
+ [1 0 0 0]
+ [0 1 1 1]
+ [0 1 1 0]
+ [0 1 0 1]
+ [0 1 0 0]
+ [0 0 1 1]
+ [0 0 1 0]
+ [0 0 0 1]
+ [0 0 0 0]]
+Let's try to partition on the value 0.5
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+[[1 1 1 1]
+ [1 1 1 0]
+ [1 1 0 1]
+ [1 1 0 0]
+ [1 0 1 1]
+ [1 0 1 0]
+ [1 0 0 1]
+ [1 0 0 0]
+ [0 1 1 1]
+ [0 1 1 0]
+ [0 1 0 1]
+ [0 1 0 0]
+ [0 0 1 1]
+ [0 0 1 0]
+ [0 0 0 1]
+ [0 0 0 0]]
+Let's try to partition on the value 0.5
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 0compare?
+It's less than or equel
+[[1 1 1 1]
+ [1 1 1 0]
+ [1 1 0 1]
+ [1 1 0 0]
+ [1 0 1 1]
+ [1 0 1 0]
+ [1 0 0 1]
+ [1 0 0 0]
+ [0 1 1 1]
+ [0 1 1 0]
+ [0 1 0 1]
+ [0 1 0 0]
+ [0 0 1 1]
+ [0 0 1 0]
+ [0 0 0 1]
+ [0 0 0 0]]
+Let's try to partition on the value 0.5
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+How does 1compare?
+It's greater
+How does 0compare?
+It's less than or equel
+True
