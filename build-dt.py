@@ -240,14 +240,13 @@ def makeDecisionTree(xTr, yTr, node):
 
     # If all data points in the data set share the same label we stop splitting and create a leaf
     if isUniform(yTr):
-        node =  TreeNode(None, None, None, None, yTr[0])
+        node =  TreeNode(None, None, None, None, np.sum(yTr) / len(yTr))
         return node
     else:
         feature, cut, bestloss = sqsplit(xTr, yTr)
+        node.prediction = np.sum(yTr) / len(yTr)
         node.feature = feature
         node.cut = cut
-        #print("cutting on ")
-        #print(cut)
         xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,cut,feature)
         childLeft = TreeNode(None, None, None, None, yTrLeft[0])
         node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
