@@ -96,6 +96,9 @@ val = np.apply_along_axis(squareMe,0,yTr,c)
 xor4 = np.array([[1,1,1,1],[1,1,1,0],[1,1,0,1],[1,1,0,0],[1,0,1,1],[1,0,1,0],[1,0,0,1],[1,0,0,0],[0,1,1,1],[0,1,1,0],[0,1,0,1],[0,1,0,0],[0,0,1,1],[0,0,1,0],[0,0,0,1],[0,0,0,0]])
 yor4 = np.array([1,0,0,1,0,1,1,0,0,1,1,0,1,0,0,1])
 
+xor2xor2 = np.array([[1,1],[1,0],[0,1],[0,0],[1,1],[1,0],[0,1],[0,0]])
+yor2yor2 = np.array([1,0,0,1,0,1,1,0])
+
 def hasDuplicates(X):
     return len(np.unique(X)) != len(X)
 
@@ -214,15 +217,19 @@ def splitSets(xTr, yTr, cut, feature):
     yTrLeft = []
     yTrRight = []
     index = 0
-    for row in xTr:
-        if row[feature] <= cut:
-        #if (index < len(yTr)/2): # For now, split using midpoint
-            xTrLeft = np.vstack([xTrLeft,row])
-            yTrLeft.append(yTr[index])
-        else:
-            xTrRight = np.vstack([xTrRight,row])
-            yTrRight.append(yTr[index])
-        index += 1
+
+    try:
+        for row in xTr:
+            if row[feature] <= cut:
+            #if (index < len(yTr)/2): # For now, split using midpoint
+                xTrLeft = np.vstack([xTrLeft,row])
+                yTrLeft.append(yTr[index])
+            else:
+                xTrRight = np.vstack([xTrRight,row])
+                yTrRight.append(yTr[index])
+            index += 1
+    except:
+            return None, None, None, None
 
     return xTrLeft, xTrRight, yTrLeft, yTrRight
 
@@ -240,20 +247,22 @@ def makeDecisionTree(xTr, yTr, node):
 
     # If all data points in the data set share the same label we stop splitting and create a leaf
     if isUniform(yTr):
-        node =  TreeNode(None, None, None, None, np.sum(yTr) / len(yTr))
-        return node
+        return TreeNode(None, None, None, None, np.sum(yTr) / len(yTr))
     else:
         feature, cut, bestloss = sqsplit(xTr, yTr)
         node.prediction = np.sum(yTr) / len(yTr)
         node.feature = feature
         node.cut = cut
         xTrLeft, xTrRight, yTrLeft, yTrRight = splitSets(xTr,yTr,cut,feature)
-        childLeft = TreeNode(None, None, None, None, yTrLeft[0])
-        node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
-        childRight = TreeNode(None, None, None, None, yTrRight[0])
-        node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
+        try:
+            childLeft = TreeNode(None, None, None, None, yTrLeft[0])
+            node.left = makeDecisionTree(xTrLeft, yTrLeft, childLeft)
+            childRight = TreeNode(None, None, None, None, yTrRight[0])
+            node.right = makeDecisionTree(xTrRight, yTrRight, childRight)
 
-    return node
+            return node
+        except:
+            return TreeNode(None, None, None, None, np.sum(yTr) / len(yTr))
 
 def printTree(node):
     print("cut = " + str(node.cut))
@@ -324,4 +333,32 @@ def cart_test5():
     # check whether you set t.feature and t.cut to something
     return t.feature is not None and t.cut is not None
 
-cart(xor4,yor4)
+tree = cart(xor4,yor4)
+
+def traceTree(root, row):
+    if not (root.left is None):
+        value = row[root.feature]
+        print(root.cut)
+        if value <= root.cut:
+            return traceTree(root.left, row)
+        else:
+            return traceTree(root.right, row)
+    else:
+        return root.prediction
+
+def evaltree(root,xTe):
+    N,D = xTe.shape
+    print (N,D)
+    print(root.cut)
+
+    preds = []
+
+    for rowIndex in range(N):
+        row = xTe[rowIndex]
+        preds.append(traceTree(root,row))
+
+    return preds
+
+print (evaltree(cart(xor4,yor4),xor4))
+
+#cart(xor2xor2,yor2yor2)
